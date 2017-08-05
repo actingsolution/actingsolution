@@ -19,9 +19,19 @@ var random_images = function(tag, dir, num) {
   }
 }
 
+var round_robin_gifs = function(tag, dir, num) {
+  var _img = document.getElementById(tag);
+  if(_img){
+    var i;
+    for( i = 1; i <= num; i++ ){
+      _img.src = "gifs/" + dir + "/" + i + ".gif";
+    }
+  }
+}
 
 $("document").ready(function() {
   random_images("homepage-image", "Home", 4)
+  round_robin_gifs("homepage-gif", "Home", 1)
   random_images("s-cs-image", "Services/communication_specialist", 1)
   random_images("s-ci-image", "Services/change_implementation", 1)
   random_images("s-cv-image", "Services/corporate_visualizations", 1)
@@ -33,5 +43,6 @@ $("document").ready(function() {
   random_images("s-ts-image", "Services/team_specialists", 1)
   random_images("s-cb-image", "Services/confidence_booster", 1)
   random_images("about-image", "About", 4)
+  round_robin_gifs("about-gif", "About", 1)
   random_images("contact-image", "Contact", 1)
 });
